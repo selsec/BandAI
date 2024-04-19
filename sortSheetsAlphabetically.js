@@ -13,4 +13,4 @@ function sortSheetsAlphabetically() {
   }
   
   // Run the function to sort the sheets
-  sortSheetsAlphabetically();
+  

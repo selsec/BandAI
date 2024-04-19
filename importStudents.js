@@ -104,19 +104,19 @@ function formatStudentSheet(sheet) {
     sheet.getRange('A17:G').setHorizontalAlignment('center');
     
     //set formula to calculate total debt
-    var formula1 = '=SUMIF(LOWER(D17:D), "debt", C17:C)';
+    var formula1 = '=SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "debt")))';
     sheet.getRange('A13').setNumberFormat('$#,##0.00');
     sheet.getRange('A13').setFormula(formula1);
     sheet.getRange('A13').setHorizontalAlignment('center');
     
     //set formula to calculate total paid
-    var formula2 = '=SUMIF(LOWER(D17:D), "payment", C17:C)';
+    var formula2 = '=SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "payment")))';
     sheet.getRange('C13').setNumberFormat('$#,##0.00');
     sheet.getRange('C13').setFormula(formula2);
     sheet.getRange('C13').setHorizontalAlignment('center');
     
     //set formula to calculate total fundraised
-    var formula3 = '=SUMIF(LOWER(D17:D), "fundraised", C17:C)';
+    var formula3 = '=SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "fundraised")))';
     sheet.getRange('E13').setNumberFormat('$#,##0.00');
     sheet.getRange('E13').setFormula(formula3);
     sheet.getRange('E13').setHorizontalAlignment('center');  
