@@ -8,7 +8,7 @@ function calculateStartDues() {
       // Assuming student sheets have names that are not 'roster' or other utility sheet names
       if (sheet.getName() !== 'roster' && sheet.getName() !== 'anotherUtilitySheetName') {
         // Check if "Fair Share" and "Uniform Fee" already exist in the sheet
-        var transactionsRange = sheet.getRange('B17:B' + sheet.getLastRow());
+        var transactionsRange = sheet.getRange('B17:B18' + sheet.getLastRow());
         var transactions = transactionsRange.getValues();
         var fairShareExists = transactions.some(function(row) { return row[0] === 'Fair Share'; });
         var uniformFeeExists = transactions.some(function(row) { return row[0] === 'Uniform Fee'; });
@@ -29,46 +29,39 @@ function calculateStartDues() {
           
           // Format the cells if needed
           sheet.getRange('C17:C18').setNumberFormat('$#,##0.00');
+          // Perform additional operations
+          var grade = sheet.getRange('C2').getValue();
+          var instrument = sheet.getRange('E2').getValue();
+          // Check if the grade is 9 and add "Shoes" and "Bibbers"
+          if (grade === 9) {
+            sheet.getRange('A19:A20').setValues([[currentDate], [currentDate]]);
+            sheet.getRange('B19').setValue('Shoes');
+            sheet.getRange('B20').setValue('Bibbers');
+            sheet.getRange('C19').setValue(60); 
+            sheet.getRange('C20').setValue(100);  
+            sheet.getRange('D19:D20').setValues([['Debt'], ['Debt']]);
+            // Check the checkboxes in cells A9 and B9
+            sheet.getRange('A9').insertCheckboxes().check();
+            sheet.getRange('B9').insertCheckboxes().check();
+          }
+        
+          // Check if the instrument is "percussion" and add "Percussion Fee"
+          if (instrument.toLowerCase() === 'percussion') {
+          var lastRow = sheet.getLastRow(); // Get the last row with content
+          var nextAvailableRow = lastRow + 1; // Calculate the next available row
+
+          // Ensure the next available row is at least 18
+          nextAvailableRow = Math.max(nextAvailableRow, 18);
+
+          // Set the current date and other information in the next available row
+          sheet.getRange('A' + nextAvailableRow).setValue(currentDate);
+          sheet.getRange('B' + nextAvailableRow).setValue('Percussion Fee');
+          sheet.getRange('C' + nextAvailableRow).setValue(150); 
+          sheet.getRange('D' + nextAvailableRow).setValue('Debt');
+          }
+
         }
       }
     });
-  }
-  function updateDuesBasedOnGradeAndInstrument() {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheets = ss.getSheets();
-    var currentDate = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "MM/dd/yyyy");
-  
-    sheets.forEach(function(sheet) {
-      // Assuming the first sheet is not a student sheet
-      if (sheet.getName().toLowerCase() !== 'roster') {
-        var grade = sheet.getRange('C2').getValue();
-        var instrument = sheet.getRange('E2').getValue();
-  
-        // Check if the grade is 9 and add "Shoes" and "Bibbers"
-        if (grade === 9) {
-          sheet.getRange('A19:A20').setValues([[currentDate], [currentDate]]);
-          sheet.getRange('B19').setValue('Shoes');
-          sheet.getRange('B20').setValue('Bibbers');
-          sheet.getRange('C19').setValue(60); // Assuming the cost for Shoes is $400
-          sheet.getRange('C20').setValue(100);  // Assuming the cost for Bibbers is $50
-          sheet.getRange('D19:D20').setValues([['Debt'], ['Debt']]);
-        }
-  
-        // Check the checkboxes in cells A9 and B9
-        sheet.getRange('A9').insertCheckboxes().check();
-        sheet.getRange('B9').insertCheckboxes().check();
-  
-        // Check if the instrument is "percussion" and add "Percussion Fee"
-        if (instrument.toLowerCase() === 'percussion') {
-          sheet.getRange('A21').setValue(currentDate);
-          sheet.getRange('B21').setValue('Percussion Fee');
-          sheet.getRange('C21').setValue(150); // Assuming the cost for Percussion Fee is $150
-          sheet.getRange('D21').setValue('Debt');
-        }
-      }
-    });
-  }
-  
-  // Run the function to update dues based on grade and instrument
-  updateDuesBasedOnGradeAndInstrument();
-  
+};
+

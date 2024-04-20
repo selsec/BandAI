@@ -1,10 +1,10 @@
 function importRoster() {
-    //This will be the heavy lifter function. It will import a list of student information and the create a new tab for each student, and format it with basic information
-    // Get the active spreadsheet and its parent folder
+    //this will be the heavy lifter function. It will import a list of student information and the create a new tab for each student, and format it with basic information
+    //get the active spreadsheet and its parent folder
   var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   var parentFolder = DriveApp.getFileById(activeSpreadsheet.getId()).getParents().next();
 
-  // Search for the spreadsheet named 'roster' in the parent folder
+  //search for the spreadsheet named 'roster' in the parent folder
   var files = parentFolder.searchFiles('title="roster" and mimeType="application/vnd.google-apps.spreadsheet" and trashed=false');
   
   if (!files.hasNext()) {
@@ -16,7 +16,7 @@ function importRoster() {
   var rosterSheet = rosterSpreadsheet.getSheets()[0]; // Assuming 'roster' has only one sheet
   var rosterData = rosterSheet.getDataRange().getValues();
     
-    // Skip the header row and start from the second row
+    //skip the header row and start from the second row
     for (var i = 1; i < rosterData.length; i++) {
     var studentName = rosterData[i][0] || '';
     var grade = rosterData[i][1] || '';
@@ -27,11 +27,11 @@ function importRoster() {
     var parentEmail = rosterData[i][6] || '';
 
     
-    // Create a new sheet for each student
+    //create a new sheet for each student
     var studentSheet = activeSpreadsheet.insertSheet(studentName);
     formatStudentSheet(studentSheet); //format the sheet with the format function
     
-    // Set values in the student's sheet
+    //set values in the student's sheet
     studentSheet.getRange('A2').setValue(studentName || '');
     studentSheet.getRange('C2').setValue(grade || '');
     studentSheet.getRange('E2').setValue(instrument || '');
@@ -45,7 +45,7 @@ function importRoster() {
 }
 
 function formatStudentSheet(sheet) {
-    //Formats the student sheet, adds headers, and creates the transaction area
+    //formats the student sheet, adds headers, and creates the transaction area
     //set up headers
     sheet.getRange('A1').setValue('Student Name');
     sheet.getRange('A4').setValue('Student Email');
@@ -63,14 +63,16 @@ function formatStudentSheet(sheet) {
     sheet.getRange('B7').setValue('Bibbers');
     sheet.getRange('C7').setValue('T-Shirt Size');
     sheet.getRange('D7').setValue('Jacket/Shako');
-    sheet.getRange('E7').setValue('Chest');
-    sheet.getRange('F7').setValue('Waist');
-    sheet.getRange('G7').setValue('Hips');
+    sheet.getRange('E7').setValue('Tie');
+    sheet.getRange('F7').setValue('Concert Dress');
+    sheet.getRange('G7').setValue('Chest/Waist/Hips');
     
     //insert check boxes for needed uniform items
     sheet.getRange('A9').insertCheckboxes();
     sheet.getRange('B9').insertCheckboxes();
     sheet.getRange('C9').insertCheckboxes();
+    sheet.getRange('E9').insertCheckboxes();
+    sheet.getRange('F9').insertCheckboxes();
     
     //format headers
     sheet.getRange('A1:G1').setFontWeight('bold');
@@ -148,7 +150,6 @@ function formatStudentSheet(sheet) {
     var headerTextRange4 = sheet.getRange('A15');
     headerTextRange4.setFontColor('#ffffff');
 
-    
-
-   
+    //center entire sheet
+    sheet.getRange('A:Z').setHorizontalAlignment('center');
 }
