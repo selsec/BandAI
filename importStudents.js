@@ -41,7 +41,16 @@ function importRoster() {
     studentSheet.getRange('E5').setValue(parentEmail || '');
       
     }
-    
+    //place new functions here
+    /*create these sheets
+    Master
+    Dashboard
+    Income/Expense
+    Bus Roster
+    Uniform Order
+    3rd Period
+    5th Period
+    */
 }
 
 function formatStudentSheet(sheet) {
@@ -65,7 +74,9 @@ function formatStudentSheet(sheet) {
     sheet.getRange('D7').setValue('Jacket/Shako');
     sheet.getRange('E7').setValue('Tie');
     sheet.getRange('F7').setValue('Concert Dress');
-    sheet.getRange('G7').setValue('Chest/Waist/Hips');
+    sheet.getRange('G7').setValue('Chest');
+    sheet.getRange('H7').setValue('Waist');
+    sheet.getRange('I7').setValue('Hips');
     
     //insert check boxes for needed uniform items
     sheet.getRange('A9').insertCheckboxes();
@@ -79,7 +90,8 @@ function formatStudentSheet(sheet) {
     sheet.getRange('A4:G4').setFontWeight('bold');
     sheet.getRange('A7:G7').setFontWeight('bold');
     sheet.getRange('A12:G12').setFontWeight('bold');
-    
+    sheet.getRange('H7:I7').setFontWeight('bold');
+        
     //merge and center transaction history header
     var mergeRange =sheet.getRange('A15:G15');
     mergeRange.merge();
@@ -135,17 +147,18 @@ function formatStudentSheet(sheet) {
     headerRange.setBackground('#213483');
     var headerRange2 = sheet.getRange('A4:G4');
     headerRange2.setBackground('#213483');
-    var headerRange3 = sheet.getRange('A7:G7');
+    var headerRange3 = sheet.getRange('A7:I7');
     headerRange3.setBackground('#213483');
     var headerRange4 = sheet.getRange('A15');
     headerRange4.setBackground('#213483');
+
     
     //set header text color
     var headerTextRange = sheet.getRange('A1:G1');
     headerTextRange.setFontColor('#ffffff');
     var headerTextRange2 = sheet.getRange('A4:G4');
     headerTextRange2.setFontColor('#ffffff');
-    var headerTextRange3 = sheet.getRange('A7:G7');
+    var headerTextRange3 = sheet.getRange('A7:I7');
     headerTextRange3.setFontColor('#ffffff');
     var headerTextRange4 = sheet.getRange('A15');
     headerTextRange4.setFontColor('#ffffff');

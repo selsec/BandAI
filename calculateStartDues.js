@@ -10,7 +10,7 @@ function calculateStartDues() {
         // Check if "Fair Share" and "Uniform Fee" already exist in the sheet
         var transactionsRange = sheet.getRange('B17:B18' + sheet.getLastRow());
         var transactions = transactionsRange.getValues();
-        var fairShareExists = transactions.some(function(row) { return row[0] === 'Fair Share'; });
+        var fairShareExists = transactions.some(function(row) { return row[0] === 'Band Fee'; });
         var uniformFeeExists = transactions.some(function(row) { return row[0] === 'Uniform Fee'; });
   
         // If neither "Fair Share" nor "Uniform Fee" exist, add them
@@ -19,7 +19,7 @@ function calculateStartDues() {
           sheet.getRange('A17:A18').setValues([[currentDate], [currentDate]]);
           
           // Set the starting dues information
-          sheet.getRange('B17').setValue('Fair Share');
+          sheet.getRange('B17').setValue('Band Fee');
           sheet.getRange('C17').setValue(400);
           sheet.getRange('D17').setValue('Debt');
           

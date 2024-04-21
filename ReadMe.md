@@ -11,6 +11,12 @@ tabs for each student which are created automatically using their name. the shee
 
 I would like a way to integrate with gmail to be able to click a button on the student sheet and have it email the parent and student their current balance sheet. (this feature can be implemented later).
 
+Sheets that need to be created:
+Bus Roster - done 
+Attendence
+Period Roster
+Attendence
+Uniform Orders
 
 
 
