@@ -1,4 +1,3 @@
-# Default colors
 function setSectionColors() {
     var fluteColor = "Yellow";
     var clarinetColor = "Red";
@@ -86,3 +85,4 @@ function setSectionColors() {
     function getPercussionColor() {
         return percussionColor;
     }
+}

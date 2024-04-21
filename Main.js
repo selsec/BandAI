@@ -1,13 +1,3 @@
-var fluteColor = "Yellow";
-    var clarinetColor = "Red";
-    var saxophoneColor = "Blue";
-    var trumpetColor = "White";
-    var colorguardColor = "Pink";
-    var mellophoneColor = "Orange";
-    var lowBrassColor = "Teal";
-    var tubaColor = "Purple";
-    var percussionColor = "Green";
-
 function onOpen() {
     var ui = SpreadsheetApp.getUi();
     ui.createMenu('Start Here')

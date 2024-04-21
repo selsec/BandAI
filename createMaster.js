@@ -27,4 +27,4 @@ function createAndFormatMasterSheet() {
   }
   
   //run the function to create and format the master sheet
-  createAndFormatMasterSheet();
+ // createAndFormatMasterSheet();

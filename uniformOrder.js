@@ -425,7 +425,7 @@ function uniformOrder() {
     sheet.getRange("A25").setValue("13").setFontWeight("bold");
     sheet.getRange("A26").setValue("13.5").setFontWeight("bold");
     sheet.getRange("A27").setValue("14").setFontWeight("bold");
-    sheet.getRange("A28:B28").merge().setValue("Other Sizes").setFontWeight("bold");.setHorizontalAlignment("center");
+    sheet.getRange("A28:B28").merge().setValue("Other Sizes").setFontWeight("bold").setHorizontalAlignment("center");
     sheet.getRange("A28:B28").setBackground("#213483").setFontColor("#FFFFFF");
     sheet.getRange("A28:B28").setBorder(true, true, true, true, true, true);
     
@@ -512,16 +512,10 @@ function uniformOrder() {
                     marchingShoes14Count++;
                 }
                 else {
-                    marchingShoesOtherCount = marchingShoesOtherCount + ", " a8Value;
+                    marchingShoesOtherCount = marchingShoesOtherCount + ", " + a8Value;
                 }
             }
         }
+    }
         //bibbers order format
-
-
-
-
-
-
-
 }
