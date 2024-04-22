@@ -77,6 +77,8 @@ function formatStudentSheet(sheet) {
     sheet.getRange('G7').setValue('Chest');
     sheet.getRange('H7').setValue('Waist');
     sheet.getRange('I7').setValue('Hips');
+    sheet.getRange('h9').setValue('Order Gloves');
+    sheet.getRange('I9').setValue('Glove Size');
     
     //insert check boxes for needed uniform items
     sheet.getRange('A9').insertCheckboxes();
@@ -84,6 +86,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('C9').insertCheckboxes();
     sheet.getRange('E9').insertCheckboxes();
     sheet.getRange('F9').insertCheckboxes();
+    sheet.getRange('h10').insertCheckboxes();
     
     //format headers
     sheet.getRange('A1:G1').setFontWeight('bold');
@@ -91,6 +94,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('A7:G7').setFontWeight('bold');
     sheet.getRange('A12:G12').setFontWeight('bold');
     sheet.getRange('H7:I7').setFontWeight('bold');
+    sheet.getRange('H9:I9').setFontWeight('bold');
         
     //merge and center transaction history header
     var mergeRange =sheet.getRange('A15:G15');
@@ -151,6 +155,8 @@ function formatStudentSheet(sheet) {
     headerRange3.setBackground('#213483');
     var headerRange4 = sheet.getRange('A15');
     headerRange4.setBackground('#213483');
+    var headerRange5 = sheet.getRange('h9:i9');
+    headerRange5.setBackground('#213483');
 
     
     //set header text color
@@ -162,6 +168,8 @@ function formatStudentSheet(sheet) {
     headerTextRange3.setFontColor('#ffffff');
     var headerTextRange4 = sheet.getRange('A15');
     headerTextRange4.setFontColor('#ffffff');
+    var headerTextRange5 = sheet.getRange('h9:i9');
+    headerTextRange5.setFontColor('#ffffff');
 
     //center entire sheet
     sheet.getRange('A:Z').setHorizontalAlignment('center');

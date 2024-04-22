@@ -4,6 +4,7 @@ function onOpen() {
       .addItem('Create Tabs', 'importRoster')
       .addItem('Sort Tabs', 'sortSheetsAlphabetically')
       .addItem('Calculate Begining Dues', 'calculateStartDues')
+      .addItem('Create/Update Uniform Order', 'uniformOrder')
       .addToUi();
   
 }
