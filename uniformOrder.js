@@ -682,6 +682,7 @@ function uniformOrder() {
             }
         }
     }
+    sheet.getRange("I23").setValue(tieOrderCount);
 
 }
 
