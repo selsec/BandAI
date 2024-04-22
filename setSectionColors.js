@@ -1,88 +1,71 @@
-function setSectionColors() {
-    var fluteColor = "Yellow";
-    var clarinetColor = "Red";
-    var saxophoneColor = "Blue";
-    var trumpetColor = "White";
-    var colorguardColor = "Pink";
-    var mellophoneColor = "Orange";
-    var lowBrassColor = "Teal";
-    var tubaColor = "Purple";
-    var percussionColor = "Green";
+  //function to prompt user for color input and update the colors
+  function setSectionColors() {
+    var ui = SpreadsheetApp.getUi();
+    
+    //prompt user for color input and update the colors if input is provided
+    var fluteInput = ui.prompt("Enter color for flute section (default: Yellow):").getResponseText();
+    if (fluteInput) fluteColor = fluteInput;
+  
+    var clarinetInput = ui.prompt("Enter color for clarinet section (default: Red):").getResponseText();
+    if (clarinetInput) clarinetColor = clarinetInput;
+  
+    var saxophoneInput = ui.prompt("Enter color for saxophone section (default: Blue):").getResponseText();
+    if (saxophoneInput) saxophoneColor = saxophoneInput;
+  
+    var trumpetInput = ui.prompt("Enter color for trumpet section (default: White):").getResponseText();
+    if (trumpetInput) trumpetColor = trumpetInput;
+  
+    var colorguardInput = ui.prompt("Enter color for colorguard section (default: Pink):").getResponseText();
+    if (colorguardInput) colorguardColor = colorguardInput;
+  
+    var mellophoneInput = ui.prompt("Enter color for mellophone section (default: Orange):").getResponseText();
+    if (mellophoneInput) mellophoneColor = mellophoneInput;
+  
+    var lowBrassInput = ui.prompt("Enter color for low brass section (default: Teal):").getResponseText();
+    if (lowBrassInput) lowBrassColor = lowBrassInput;
+  
+    var tubaInput = ui.prompt("Enter color for tuba section (default: Purple):").getResponseText();
+    if (tubaInput) tubaColor = tubaInput;
+  
+    var percussionInput = ui.prompt("Enter color for percussion section (default: Green):").getResponseText();
+    if (percussionInput) percussionColor = percussionInput;
+  }
+  
+  //getter functions to access the colors
+  function getFluteColor() {
+    return sectionColors.fluteColor;
+  }
+  
+  function getClarinetColor() {
+    return sectionColors.clarinetColor;
+  }
+  
+  function getSaxophoneColor() {
+    return sectionColors.saxophoneColor;
+  }
+  
+  function getTrumpetColor() {
+    return sectionColors.trumpetColor;
+  }
+  
+  function getColorguardColor() {
+    return sectionColors.colorguardColor;
+  }
+  
+  function getMellophoneColor() {
+    return sectionColors.mellophoneColor;
+  }
+  
+  function getLowBrassColor() {
+    return sectionColors.lowBrassColor;
+  }
+  
+  function getTubaColor() {
+    return sectionColors.tubaColor;
+  }
+  
+  function getPercussionColor() {
+    return sectionColors.percussionColor;
+  }
 
-    // Prompt user for color input
-    var fluteInput = prompt("Enter color for flute section (default: Yellow):");
-    var clarinetInput = prompt("Enter color for clarinet section (default: Red):");
-    var saxophoneInput = prompt("Enter color for saxophone section (default: Blue):");
-    var trumpetInput = prompt("Enter color for trumpet section (default: White):");
-    var colorguardInput = prompt("Enter color for colorguard section (default: Pink):");
-    var mellophoneInput = prompt("Enter color for mellophone section (default: Orange):");
-    var lowBrassInput = prompt("Enter color for low brass section (default: Teal):");
-    var tubaInput = prompt("Enter color for tuba section (default: Purple):");
-    var percussionInput = prompt("Enter color for percussion section (default: Green):");
-
-    // Update section colors if input is provided
-    if (fluteInput) {
-        fluteColor = fluteInput;
-    }
-    if (clarinetInput) {
-        clarinetColor = clarinetInput;
-    }
-    if (saxophoneInput) {
-        saxophoneColor = saxophoneInput;
-    }
-    if (trumpetInput) {
-        trumpetColor = trumpetInput;
-    }
-    if (colorguardInput) {
-        colorguardColor = colorguardInput;
-    }
-    if (mellophoneInput) {
-        mellophoneColor = mellophoneInput;
-    }
-    if (lowBrassInput) {
-        lowBrassColor = lowBrassInput;
-    }
-    if (tubaInput) {
-        tubaColor = tubaInput;
-    }
-    if (percussionInput) {
-        percussionColor = percussionInput;
-    }
-
-    //getters for section colors
-    function getFluteColor() {
-        return fluteColor;
-    }
-
-    function getClarinetColor() {
-        return clarinetColor;
-    }
-
-    function getSaxophoneColor() {
-        return saxophoneColor;
-    }
-
-    function getTrumpetColor() {
-        return trumpetColor;
-    }
-
-    function getColorguardColor() {
-        return colorguardColor;
-    }
-
-    function getMellophoneColor() {
-        return mellophoneColor;
-    }
-
-    function getLowBrassColor() {
-        return lowBrassColor;
-    }
-
-    function getTubaColor() {
-        return tubaColor;
-    }
-
-    function getPercussionColor() {
-        return percussionColor;
-    }
-}
+  
