@@ -548,8 +548,8 @@ function uniformOrder() {
         var currentSheet = sheets[i];
         var sheetName = currentSheet.getName();
         if (sheetName !== "Master" && sheetName !== "Bus Roster" && sheetName !== "Uniform Order" && sheetName !== "Dashboard" && sheetName !== "IncomeExpense") {
-            var f9value = currentSheet.getRange("H10").getValue();
-            if (f9value === true) {
+            var e9value = currentSheet.getRange("H10").getValue();
+            if (e9value === true) {
                 var i10value = currentSheet.getRange("D8").getValue().toString().toLowerCase();
                 if (i10value === "xs") {
                     glovesXSCount = glovesXSCount + 1;
@@ -597,8 +597,8 @@ function uniformOrder() {
         var currentSheet = sheets[i];
         var sheetName = currentSheet.getName();
         if (sheetName !== "Master" && sheetName !== "Bus Roster" && sheetName !== "Uniform Order" && sheetName !== "Dashboard" && sheetName !== "IncomeExpense") {
-            var f9value = currentSheet.getRange("f9").getValue();
-            if (f9value === true) {
+            var e9value = currentSheet.getRange("f9").getValue();
+            if (e9value === true) {
                 var chest = currentSheet.getRange("g8").getValue().toString().toLowerCase();
                 var waist = currentSheet.getRange("h8").getValue().toString().toLowerCase();
                 var hips = currentSheet.getRange("i8").getValue().toString().toLowerCase();
@@ -676,13 +676,13 @@ function uniformOrder() {
         var currentSheet = sheets[i];
         var sheetName = currentSheet.getName();
         if (sheetName !== "Master" && sheetName !== "Bus Roster" && sheetName !== "Uniform Order" && sheetName !== "Dashboard" && sheetName !== "IncomeExpense") {
-            var f9value = currentSheet.getRange("H10").getValue();
-            if (f9value === true) {
-                tieOrderCount++;
+            var e9value = currentSheet.getRange("E9").getValue();
+            if (e9value === true) {
+                tieOrderCount = tieOrderCount + 1;
             }
         }
     }
-    sheet.getRange("I23").setValue(tieOrderCount);
+    sheet.getRange("H23").setValue(tieOrderCount);
 
 }
 
