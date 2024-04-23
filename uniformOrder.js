@@ -683,6 +683,7 @@ function uniformOrder() {
         }
     }
     sheet.getRange("H23").setValue(tieOrderCount);
+    sheet.getRange("A:Z").setHorizontalAlignment("center");
 
 }
 //3 days to complete

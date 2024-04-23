@@ -1,5 +1,5 @@
 function importRoster() {
-    //this will be the heavy lifter function. It will import a list of student information and the create a new tab for each student, and format it with basic information
+    //this will import a list of student information and the create a new tab for each student, and format it with basic information
     //get the active spreadsheet and its parent folder
   var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   var parentFolder = DriveApp.getFileById(activeSpreadsheet.getId()).getParents().next();
@@ -25,7 +25,7 @@ function importRoster() {
     var studentEmail = rosterData[i][4] || '';
     var parentName = rosterData[i][5] || '';
     var parentEmail = rosterData[i][6] || '';
-
+    var studentPeriod = rosterData[i][7] || '';  
     
     //create a new sheet for each student
     var studentSheet = activeSpreadsheet.insertSheet(studentName);
@@ -39,6 +39,7 @@ function importRoster() {
     studentSheet.getRange('A5').setValue(studentEmail || '');
     studentSheet.getRange('C5').setValue(parentName || '');
     studentSheet.getRange('E5').setValue(parentEmail || '');
+    studentSheet.getRange('B2').setValue(studentPeriod || '');
       
     }
     //place new functions here
@@ -57,6 +58,7 @@ function formatStudentSheet(sheet) {
     //formats the student sheet, adds headers, and creates the transaction area
     //set up headers
     sheet.getRange('A1').setValue('Student Name');
+    sheet.getRange('B1').setValue('Period');
     sheet.getRange('A4').setValue('Student Email');
     sheet.getRange('C1').setValue('Grade');
     sheet.getRange('C4').setValue('Parent Name');

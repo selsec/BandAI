@@ -5,18 +5,12 @@ function onOpen() {
       .addItem('Sort Tabs', 'sortSheetsAlphabetically')
       .addItem('Calculate Begining Dues', 'calculateStartDues')
       .addItem('Create/Update Uniform Order', 'uniformOrder')
+      .addItem('Create Bus Roster', 'createBusRoster')
+      .addItem('Set Section Colors', 'setSectionColors')
+      .addItem('Update Uniform Measurements', 'importUniformUpdates')
       .addToUi();
   
 }
-var fluteColor = "Yellow";
-var clarinetColor = "Red";
-var saxophoneColor = "Blue";
-var trumpetColor = "White";
-var colorguardColor = "Pink";
-var mellophoneColor = "Orange";
-var lowBrassColor = "Teal";
-var tubaColor = "Purple";
-var percussionColor = "Green";
 
 
   
