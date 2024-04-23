@@ -26,21 +26,21 @@ function createAndFormatMasterSheet() {
     masterSheet.getRange('A:Z').setHorizontalAlignment('center');
 
     //set the column widths
-    masterSheet.setColumnWidth(1, 200);
-    masterSheet.setColumnWidth(2, 200);
-    masterSheet.setColumnWidth(3, 200);
-    masterSheet.setColumnWidth(4, 200);
-    masterSheet.setColumnWidth(5, 200);
-    masterSheet.setColumnWidth(6, 200);
-    masterSheet.setColumnWidth(7, 200);
-    masterSheet.setColumnWidth(8, 200);
-    masterSheet.setColumnWidth(9, 200);
-    masterSheet.setColumnWidth(10, 200);
-    masterSheet.setColumnWidth(11, 200);
-    masterSheet.setColumnWidth(12, 200);
-    masterSheet.setColumnWidth(13, 200);
-    masterSheet.setColumnWidth(14, 200);
-    masterSheet.setColumnWidth(15, 200);
+    masterSheet.setColumnWidth(1, 100);
+    masterSheet.setColumnWidth(2, 100);
+    masterSheet.setColumnWidth(3, 100);
+    masterSheet.setColumnWidth(4, 100);
+    masterSheet.setColumnWidth(5, 100);
+    masterSheet.setColumnWidth(6, 100);
+    masterSheet.setColumnWidth(7, 100);
+    masterSheet.setColumnWidth(8, 100);
+    masterSheet.setColumnWidth(9, 100);
+    masterSheet.setColumnWidth(10, 100);
+    masterSheet.setColumnWidth(11, 100);
+    masterSheet.setColumnWidth(12, 100);
+    masterSheet.setColumnWidth(13, 100);
+    masterSheet.setColumnWidth(14, 100);
+    masterSheet.setColumnWidth(15, 100);
     
     //loop through all sheets and set the student names in the master sheet
     ss.getSheets().forEach(function(sheet, index) {
@@ -48,9 +48,11 @@ function createAndFormatMasterSheet() {
                var studentName = sheet.getRange('A2').getValue();
                var studentGrade = sheet.getRange('C2').getValue();
                var studentPeriod = sheet.getRange('B2').getValue();
-        masterSheet.getRange('A' + (index + 2)).setValue(studentName);
-        masterSheet.getRange('B' + (index + 2)).setValue(studentGrade);
-        masterSheet.getRange('C' + (index + 2)).setValue(studentPeriod);
+               var studentInstrument = sheet.getRange('E2').getValue();
+        masterSheet.getRange('A' + (index + 1)).setValue(studentName);
+        masterSheet.getRange('B' + (index + 1)).setValue(studentGrade);
+        masterSheet.getRange('C' + (index + 1)).setValue(studentPeriod);
+        masterSheet.getRange('E' + (index + 1)).setValue(studentInstrument);
       }
     });
   }

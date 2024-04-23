@@ -33,8 +33,8 @@ function importUniformUpdates() {
     var orderTie = uniformData[i][14] || false;
 
     //search for sheet name and fill data
-    for (var j = 0; j < uniformSpreadsheet.getSheets().length; j++) {
-        var sheet = uniformSpreadsheet.getSheets()[j];
+    for (var j = 0; j < activeSpreadsheet.getSheets().length; j++) {
+        var sheet = activeSpreadsheet.getSheets()[j];
         if (sheet.getName() === studentName) {
             sheet.getRange('A8').setValue(shoes);
             sheet.getRange('B8').setValue(bibbers);
@@ -43,12 +43,24 @@ function importUniformUpdates() {
             sheet.getRange('G8').setValue(chest);
             sheet.getRange('H8').setValue(waist);
             sheet.getRange('I8').setValue(hips);
-            sheet.getRange('A9').setValue(orderShoes);
-            sheet.getRange('B9').setValue(orderBibbers);
-            sheet.getRange('E9').setValue(orderTie);
-            sheet.getRange('F9').setValue(orderConcert);
-            sheet.getRange('H10').setValue(orderGloves);
             sheet.getRange('I10').setValue(gloves);
+            //only update if import value is true, otherwise, leave sheet alone
+            if (orderShoes === true) {
+            sheet.getRange('A9').setValue(orderShoes);
+            }
+            if (orderBibbers === true) {
+            sheet.getRange('B9').setValue(orderBibbers);
+            }
+            if (orderTie === true ){
+            sheet.getRange('E9').setValue(orderTie);
+            }
+            if (orderConcert === true) {
+            sheet.getRange('F9').setValue(orderConcert);
+            }
+            if (orderGloves === true) {
+            sheet.getRange('H10').setValue(orderGloves);
+            }
+            
             break;
         }
         }

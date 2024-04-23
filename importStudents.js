@@ -52,6 +52,8 @@ function importRoster() {
     3rd Period
     5th Period
     */
+   createAndFormatMasterSheet();
+   calculateStartDues();
 }
 
 function formatStudentSheet(sheet) {
