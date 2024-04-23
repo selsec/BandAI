@@ -5,8 +5,9 @@ function calculateStartDues() {
   
     // Iterate over each sheet and update the starting dues
     sheets.forEach(function(sheet) {
+      var sheetName = sheet.getName();
       // Assuming student sheets have names that are not 'roster' or other utility sheet names
-      if (sheet.getName() !== 'roster' && sheet.getName() !== 'anotherUtilitySheetName') {
+      if (sheetName !== "Master" && sheetName !== "Bus Roster" && sheetName !== "Period Roster" && sheetName !== "Attendance" && sheetName !== "Uniform Order"){
         // Check if "Fair Share" and "Uniform Fee" already exist in the sheet
         var transactionsRange = sheet.getRange('B17:B18' + sheet.getLastRow());
         var transactions = transactionsRange.getValues();
@@ -43,6 +44,7 @@ function calculateStartDues() {
             // Check the checkboxes in cells A9 and B9
             sheet.getRange('A9').insertCheckboxes().check();
             sheet.getRange('B9').insertCheckboxes().check();
+            sheet.getRange('H10').insertCheckboxes().check();
           }
         
           // Check if the instrument is "percussion" and add "Percussion Fee"
@@ -63,5 +65,8 @@ function calculateStartDues() {
         }
       }
     });
-};
+  }
+
+  
+
 

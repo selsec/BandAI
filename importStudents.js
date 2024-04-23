@@ -54,6 +54,7 @@ function importRoster() {
     */
    createAndFormatMasterSheet();
    calculateStartDues();
+   sortSheetsAlphabetically();
 }
 
 function formatStudentSheet(sheet) {
