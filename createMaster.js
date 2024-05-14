@@ -39,7 +39,7 @@ function createAndFormatMasterSheet() {
 
   
     //formatting for the headers
-    masterSheet.getRange('A1:U1').setFontWeight('bold')
+    masterSheet.getRange('A1:V1').setFontWeight('bold')
       .setHorizontalAlignment('center')
       .setBackground('#213483')
       .setFontColor('#FFFFFF');
@@ -82,5 +82,4 @@ function createAndFormatMasterSheet() {
     }
   }
   
-  //run the function to create and format the master sheet
- // createAndFormatMasterSheet();
+  
