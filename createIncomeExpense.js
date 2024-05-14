@@ -1,13 +1,13 @@
 function createIncomeExpense() {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var incomeExpenseSheet = ss.getSheetByName('Master');
-    var masterIndex = ss.getSheets().indexOf(incomeExpenseSheet);
-    var incomeExpenseSheet = ss.insertSheet('IncomeExpense', masterIndex + 1);
+    var incomeExpense = ss.getSheetByName('Master');
+    var masterIndex = ss.getSheets().indexOf(incomeExpense);
+    var incomeExpense = ss.insertSheet('IncomeExpense', masterIndex + 1);
     var masterSheetName = 'Master';
 
     //headers for the sheet
     var headers = [
-        'Student Name', 'Grade', 'Period', 'Instrument', 'Band Fee ($300/$400)', 'Colorguard Fee ($400)', 'Uniform Fee ($50)',
+        'Band Fee ($300/$400)', 'Colorguard Fee ($400)', 'Uniform Fee ($50)',
         'Percussion Fee ($100)', 'Bibbers ($60)', 'Shoes ($30)', 'Dress ($70)',
         'All County ($10)', 'S&E', 'State', 'Indoor Winds', 'Indoor Guard',
         'Leadership Chord', 'Gloves', 'Chaperone Shirt', 'Extra Show Shirt',
@@ -15,69 +15,72 @@ function createIncomeExpense() {
       ];
     
     //set the headers in row 1
-    incomeExpenseSheet.getRange('A1:V1').setValues([headers]);
-    incomeExpenseSheet.getRange('A1').setValue('Student Name');
-    incomeExpenseSheet.getRange('B1').setValue('Grade');
-    incomeExpenseSheet.getRange('C1').setValue('Period');
-    incomeExpenseSheet.getRange('E1').setValue('Instrument');
-    incomeExpenseSheet.getRange('F1').setValue('Band Fee/CG ($300/$400)');
-    incomeExpenseSheet.getRange('G1').setValue('Uniform Fee ($50)');
-    incomeExpenseSheet.getRange('H1').setValue('Percussion Fee ($100)');
-    incomeExpenseSheet.getRange('I1').setValue('Bibbers ($60)');
-    incomeExpenseSheet.getRange('J1').setValue('Shoes ($30)');
-    incomeExpenseSheet.getRange('K1').setValue('Dress ($70)');
-    incomeExpenseSheet.getRange('L1').setValue('All County ($10)');
-    incomeExpenseSheet.getRange('M1').setValue('S&E');
-    incomeExpenseSheet.getRange('N1').setValue('State');
-    incomeExpenseSheet.getRange('O1').setValue('Indoor Winds');
-    incomeExpenseSheet.getRange('P1').setValue('Indoor Guard');
-    incomeExpenseSheet.getRange('Q1').setValue('Leadership Chord');
-    incomeExpenseSheet.getRange('R1').setValue('Gloves');
-    incomeExpenseSheet.getRange('S1').setValue('Chaperone Shirt');
-    incomeExpenseSheet.getRange('T1').setValue('Extra Show Shirt');
-    incomeExpenseSheet.getRange('U1').setValue('Fundraising');
-    incomeExpenseSheet.getRange('V1').setValue('Senior Banners');
-    
+    incomeExpense.getRange('A1:R1').setValues([headers]);
+    /*
+    incomeExpense.getRange('A1').setValue('Student Name');
+    incomeExpense.getRange('B1').setValue('Grade');
+    incomeExpense.getRange('C1').setValue('Period');
+    incomeExpense.getRange('E1').setValue('Instrument');
+    incomeExpense.getRange('F1').setValue('Band Fee/CG ($300/$400)');
+    incomeExpense.getRange('G1').setValue('Uniform Fee ($50)');
+    incomeExpense.getRange('H1').setValue('Percussion Fee ($100)');
+    incomeExpense.getRange('I1').setValue('Bibbers ($60)');
+    incomeExpense.getRange('J1').setValue('Shoes ($30)');
+    incomeExpense.getRange('K1').setValue('Dress ($70)');
+    incomeExpense.getRange('L1').setValue('All County ($10)');
+    incomeExpense.getRange('M1').setValue('S&E');
+    incomeExpense.getRange('N1').setValue('State');
+    incomeExpense.getRange('O1').setValue('Indoor Winds');
+    incomeExpense.getRange('P1').setValue('Indoor Guard');
+    incomeExpense.getRange('Q1').setValue('Leadership Chord');
+    incomeExpense.getRange('R1').setValue('Gloves');
+    incomeExpense.getRange('S1').setValue('Chaperone Shirt');
+    incomeExpense.getRange('T1').setValue('Extra Show Shirt');
+    incomeExpense.getRange('U1').setValue('Fundraising');
+    incomeExpense.getRange('V1').setValue('Senior Banners');
+    */
     //set the formula for row 2 to sum the corresponding header from the master sheet and place the value here
-    headers.forEach(function(header, index) {
+    
+    var headers1 =['F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    headers1.forEach(function(header, index) {
         var formula = '=SUM(' + masterSheetName + '!' + header + '2:' + header + ')';
-        incomeExpenseSheet.getRange(2, index + 1).setFormula(formula);
+        incomeExpense.getRange(2, index + 1).setFormula(formula);
     });
     
     //formatting for the headers
-    incomeExpenseSheet.getRange('A1:V1').setFontWeight('bold')
+    incomeExpense.getRange('A1:R1').setFontWeight('bold')
       .setHorizontalAlignment('center')
       .setBackground('#213483')
       .setFontColor('#FFFFFF');
     
     //center align the entire sheet
-    incomeExpenseSheet.getRange('A:Z').setHorizontalAlignment('center');
+    incomeExpense.getRange('A:Z').setHorizontalAlignment('center');
 
     // Format the cells directly under each header as currency
-    for (var i = 2; i <= headers.length + 1; i++) {
-    incomeExpenseSheet.getRange(2, i).setNumberFormat('$#,##0.00');
+    for (var i = 1; i <= headers.length + 1; i++) {
+    incomeExpense.getRange(2, i).setNumberFormat('$#,##0.00');
     }
 
     //setup dashboard
-    incomeExpenseSheet.getRange('A5').setValue('Total Fees Paid');
-    incomeExpenseSheet.getRange('C5').setValue('Total Income + Fees');
-    incomeExpenseSheet.getRange('E5').setValue('Total Expenses');
-    incomeExpenseSheet.getRange('G5').setValue('Balance');
+    incomeExpense.getRange('A5').setValue('Total Fees Paid');
+    incomeExpense.getRange('C5').setValue('Total Income + Fees');
+    incomeExpense.getRange('E5').setValue('Total Expenses');
+    incomeExpense.getRange('G5').setValue('Balance');
 
     //formatting for the dashboard
-    sheet.getRange("A5").setFontWeight('bold')
+    incomeExpense.getRange("A5").setFontWeight('bold')
         .setHorizontalAlignment('center')
         .setBackground('#213483')
         .setFontColor('#FFFFFF');
-    sheet.getRange("C5").setFontWeight('bold')
+    incomeExpense.getRange("C5").setFontWeight('bold')
         .setHorizontalAlignment('center')
         .setBackground('#213483')
         .setFontColor('#FFFFFF');
-    sheet.getRange("E5").setFontWeight('bold')
+    incomeExpense.getRange("E5").setFontWeight('bold')
         .setHorizontalAlignment('center')
         .setBackground('#213483')
         .setFontColor('#FFFFFF');
-    sheet.getRange("G5").setFontWeight('bold')
+    incomeExpense.getRange("G5").setFontWeight('bold')
         .setHorizontalAlignment('center')
         .setBackground('#213483')
         .setFontColor('#FFFFFF');
@@ -87,51 +90,51 @@ function createIncomeExpense() {
     var totalIncomeFees = '=SUM(A6, C11)';
     var totalExpenses = '=SUM(E11:E)';
     var balance = '=C6-E6';
-    incomeExpenseSheet.getRange('A6').setFormula(totalFeesPaid);
-    incomeExpenseSheet.getRange('C6').setFormula(totalIncomeFees);
-    incomeExpenseSheet.getRange('E6').setFormula(totalExpenses);
-    incomeExpenseSheet.getRange('G6').setFormula(balance);
+    incomeExpense.getRange('A6').setFormula(totalFeesPaid);
+    incomeExpense.getRange('C6').setFormula(totalIncomeFees);
+    incomeExpense.getRange('E6').setFormula(totalExpenses);
+    incomeExpense.getRange('G6').setFormula(balance);
 
     //format the cells as currency
-    incomeExpenseSheet.getRange('A6').setNumberFormat('$#,##0.00');
-    incomeExpenseSheet.getRange('C6').setNumberFormat('$#,##0.00');
-    incomeExpenseSheet.getRange('E6').setNumberFormat('$#,##0.00');
-    incomeExpenseSheet.getRange('G6').setNumberFormat('$#,##0.00');
+    incomeExpense.getRange('A6').setNumberFormat('$#,##0.00');
+    incomeExpense.getRange('C6').setNumberFormat('$#,##0.00');
+    incomeExpense.getRange('E6').setNumberFormat('$#,##0.00');
+    incomeExpense.getRange('G6').setNumberFormat('$#,##0.00');
 
     //set up non-fee income/expense
-    incomeExpenseSheet.getRange('A10').setValue('Non-Fee Income');
-    incomeExpenseSheet.getRange('B10').setValue('Source');
-    incomeExpenseSheet.getRange('C10').setValue('Total Non-Fee Income');
+    incomeExpense.getRange('A10').setValue('Non-Fee Income');
+    incomeExpense.getRange('B10').setValue('Source');
+    incomeExpense.getRange('C10').setValue('Total Non-Fee Income');
 
     //formatting for the non-fee income/expense
-    incomeExpenseSheet.getRange('A10:C10').setFontWeight('bold')
+    incomeExpense.getRange('A10:C10').setFontWeight('bold')
       .setHorizontalAlignment('center')
       .setBackground('#213483')
       .setFontColor('#FFFFFF');
-    incomeExpenseSheet.getRange('A11:A').setNumberFormat('$#,##0.00');
-    incomeExpenseSheet.getRange('C11:C').setNumberFormat('$#,##0.00');
+    incomeExpense.getRange('A11:A').setNumberFormat('$#,##0.00');
+    incomeExpense.getRange('C11:C').setNumberFormat('$#,##0.00');
     var totanNonFeeIncome = '=SUM(A11:A)';
-    incomeExpenseSheet.getRange('C11').setFormula(totanNonFeeIncome);
+    incomeExpense.getRange('C11').setFormula(totanNonFeeIncome);
 
     //set up expenses
-    incomeExpenseSheet.getRange('E10').setValue('Expenses');
-    incomeExpenseSheet.getRange('F10').setValue('PO#');
-    incomeExpenseSheet.getRange('G10').setValue('Description');
-    incomeExpenseSheet.getRange('H10').setValue('Total Expenses');
+    incomeExpense.getRange('E10').setValue('Expenses');
+    incomeExpense.getRange('F10').setValue('PO#');
+    incomeExpense.getRange('G10').setValue('Description');
+    incomeExpense.getRange('H10').setValue('Total Expenses');
 
     //formatting for the expenses
-    incomeExpenseSheet.getRange('E10:H10').setFontWeight('bold')
+    incomeExpense.getRange('E10:H10').setFontWeight('bold')
       .setHorizontalAlignment('center')
       .setBackground('#213483')
       .setFontColor('#FFFFFF');
-    incomeExpenseSheet.getRange('E11:E').setNumberFormat('$#,##0.00');
-    incomeExpenseSheet.getRange('H11:H').setNumberFormat('$#,##0.00');
+    incomeExpense.getRange('E11:E').setNumberFormat('$#,##0.00');
+    incomeExpense.getRange('H11:H').setNumberFormat('$#,##0.00');
     var totalExpenses = '=SUM(E11:E)';
-    incomeExpenseSheet.getRange('H11').setFormula(totalExpenses);
+    incomeExpense.getRange('H11').setFormula(totalExpenses);
 
     //resize the columns
     for (var i =1; i < 22; i++){
-      incomeExpenseSheet.autoResizeColumn(i);
+      incomeExpense.autoResizeColumn(i);
     }
     
 }

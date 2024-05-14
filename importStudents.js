@@ -85,6 +85,7 @@ function importRoster() {
    createAndFormatMasterSheet();
    calculateStartDues();
    sortSheetsAlphabetically();
+   createIncomeExpense();
 }
 
 function formatStudentSheet(sheet) {
@@ -169,7 +170,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('C13').setHorizontalAlignment('center');
     
     //set formula to calculate total fundraised
-    var formula3 = '=SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "fundraised")))';
+    var formula3 = '=IFERROR(SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "fundraised"))), "$0.00")';
     sheet.getRange('E13').setNumberFormat('$#,##0.00');
     sheet.getRange('E13').setFormula(formula3);
     sheet.getRange('E13').setHorizontalAlignment('center');  
