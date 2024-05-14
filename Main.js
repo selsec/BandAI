@@ -6,7 +6,7 @@ function onOpen() {
       .addItem('Create/Update Uniform Order', 'uniformOrder')
       .addItem('Create Bus Roster', 'createBusRoster')
       .addItem('Update Uniform Measurements', 'importUniformUpdates')
-      .addSubMenu(ui.createMenu('Settings and Maintenance'))
+      .addSubMenu(ui.createMenu('Settings and Maintenance')
         .addItem('Set Section Colors', 'setUniformColors')
         .addItem('Sort Sheets', 'sortSheetsAlphabetically')
       .addToUi();
