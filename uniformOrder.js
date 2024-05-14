@@ -600,50 +600,48 @@ function uniformOrder() {
             var e9value = currentSheet.getRange("f9").getValue();
             if (e9value === true) {
                 var chest = currentSheet.getRange("g8").getValue().toString().toLowerCase();
-                var waist = currentSheet.getRange("h8").getValue().toString().toLowerCase();
-                var hips = currentSheet.getRange("i8").getValue().toString().toLowerCase();
-                if (chest >= 29.5 && chest <= 31 && waist >= 20.5 && waist <= 22 && hips >= 30.5 && hips <= 32) {
+                if (chest >= 29.5 && chest <= 31) {
                     size0Count++;
-                  } else if (chest >= 30.5 && chest <= 33 && waist >= 22.5 && waist <= 24 && hips >= 32.5 && hips <= 34) {
+                  } else if (chest >= 30.5 && chest <= 33) {
                     size2Count++;
                   }
-                  else if (chest >= 32.5 && chest <= 35 && waist >= 24.5 && waist <= 26 && hips >= 34.5 && hips <= 36) {
+                  else if (chest >= 32.5 && chest <= 35) {
                     size4Count++;
                   }
-                  else if (chest >= 34.5 && chest <= 36 && waist >= 26.5 && waist <= 27 && hips >= 36.5 && hips <= 37) {
+                  else if (chest >= 34.5 && chest <= 36) {
                     size6Count++;
                   }
-                  else if (chest >= 35.5 && chest <= 37 && waist >= 27.5 && waist <= 28 && hips >= 37.5 && hips <= 38) {
+                  else if (chest >= 35.5 && chest <= 37) {
                     size8Count++;
                   }
-                  else if (chest >= 36.5 && chest <= 39 && waist >= 28.5 && waist <= 30 && hips >= 38.5 && hips <= 40) {
+                  else if (chest >= 36.5 && chest <= 39) {
                     size10Count++;
                   }
-                  else if (chest >= 38.5 && chest <= 40 && waist >= 30.5 && waist <= 32 && hips >= 40.5 && hips <= 42) {
+                  else if (chest >= 38.5 && chest <= 40) {
                     size12Count++;
                   }
-                  else if (chest >= 39.5 && chest <= 41 && waist >= 32.5 && waist <= 34 && hips >= 42.5 && hips <= 43) {
+                  else if (chest >= 39.5 && chest <= 41) {
                     size14Count++;
                   }
-                  else if (chest >= 40.5 && chest <= 43 && waist >= 34.5 && waist <= 35 && hips >= 43.5 && hips <= 44) {
+                  else if (chest >= 40.5 && chest <= 43) {
                     size16Count++;
                   }
-                  else if (chest >= 41.5 && chest <= 44 && waist >= 35.5 && waist <= 37 && hips >= 44.5 && hips <= 46) {
+                  else if (chest >= 41.5 && chest <= 44) {
                     size18Count++;
                   }
-                  else if (chest >= 43.5 && chest <= 46 && waist >= 37.5 && waist <= 39 && hips >= 46.5 && hips <= 48) {
+                  else if (chest >= 43.5 && chest <= 46) {
                     size20Count++;
                   }
-                  else if (chest >= 45.5 && chest <= 48 && waist >= 39.5 && waist <= 41 && hips >= 48.5 && hips <= 50) {
+                  else if (chest >= 45.5 && chest <= 48) {
                     size22Count++;
                   }
-                  else if (chest >= 47.5 && chest <= 50 && waist >= 41.5 && waist <= 43 && hips >= 50.5 && hips <= 52) {
+                  else if (chest >= 47.5 && chest <= 50) {
                     size24Count++;
                   }
-                  else if (chest >= 49.5 && chest <= 52 && waist >= 43.5 && waist <= 45 && hips >= 52.5 && hips <= 54) {
+                  else if (chest >= 49.5 && chest <= 52) {
                     size26Count++;
                   }
-                  else if (chest >= 51.5 && chest <= 54 && waist >= 45.5 && waist <= 47 && hips >= 54.5 && hips <= 56) {
+                  else if (chest >= 51.5 && chest <= 54) {
                     size28Count++;
                 }
             }

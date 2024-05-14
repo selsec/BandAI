@@ -27,10 +27,40 @@ function importRoster() {
     var parentEmail = rosterData[i][6] || '';
     var studentPeriod = rosterData[i][7] || '';  
     
-    //create a new sheet for each student
+    /*//create a new sheet for each student
     var studentSheet = activeSpreadsheet.insertSheet(studentName);
-    formatStudentSheet(studentSheet); //format the sheet with the format function
-    
+    formatStudentSheet(studentSheet); //format the sheet with the format function*/
+    // Check if the sheet already exists
+    if (sheetExists(studentName)) {
+      throw new Error('Sheet already exists for student: ' + studentName);
+    }
+
+    // Create a new sheet for each student
+    var studentSheet = activeSpreadsheet.insertSheet(studentName);
+    formatStudentSheet(studentSheet); // Format the sheet with the format function
+
+    // Set values in the student's sheet
+    studentSheet.getRange('A2').setValue(studentName || '');
+    studentSheet.getRange('C2').setValue(grade || '');
+    studentSheet.getRange('E2').setValue(instrument || '');
+    studentSheet.getRange('G2').setValue(ensembles || '');
+    studentSheet.getRange('A5').setValue(studentEmail || '');
+    studentSheet.getRange('C5').setValue(parentName || '');
+    studentSheet.getRange('E5').setValue(parentEmail || '');
+    studentSheet.getRange('B2').setValue(studentPeriod || '');
+
+    // Function to check if the sheet already exists
+    function sheetExists(sheetName) {
+      var sheets = activeSpreadsheet.getSheets();
+      for (var i = 0; i < sheets.length; i++) {
+        if (sheets[i].getName() === sheetName) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+
     //set values in the student's sheet
     studentSheet.getRange('A2').setValue(studentName || '');
     studentSheet.getRange('C2').setValue(grade || '');

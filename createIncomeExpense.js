@@ -91,7 +91,47 @@ function createIncomeExpense() {
     incomeExpenseSheet.getRange('C6').setFormula(totalIncomeFees);
     incomeExpenseSheet.getRange('E6').setFormula(totalExpenses);
     incomeExpenseSheet.getRange('G6').setFormula(balance);
+
+    //format the cells as currency
+    incomeExpenseSheet.getRange('A6').setNumberFormat('$#,##0.00');
+    incomeExpenseSheet.getRange('C6').setNumberFormat('$#,##0.00');
+    incomeExpenseSheet.getRange('E6').setNumberFormat('$#,##0.00');
+    incomeExpenseSheet.getRange('G6').setNumberFormat('$#,##0.00');
+
+    //set up non-fee income/expense
+    incomeExpenseSheet.getRange('A10').setValue('Non-Fee Income');
+    incomeExpenseSheet.getRange('B10').setValue('Source');
+    incomeExpenseSheet.getRange('C10').setValue('Total Non-Fee Income');
+
+    //formatting for the non-fee income/expense
+    incomeExpenseSheet.getRange('A10:C10').setFontWeight('bold')
+      .setHorizontalAlignment('center')
+      .setBackground('#213483')
+      .setFontColor('#FFFFFF');
+    incomeExpenseSheet.getRange('A11:A').setNumberFormat('$#,##0.00');
+    incomeExpenseSheet.getRange('C11:C').setNumberFormat('$#,##0.00');
+    var totanNonFeeIncome = '=SUM(A11:A)';
+    incomeExpenseSheet.getRange('C11').setFormula(totanNonFeeIncome);
+
+    //set up expenses
+    incomeExpenseSheet.getRange('E10').setValue('Expenses');
+    incomeExpenseSheet.getRange('F10').setValue('PO#');
+    incomeExpenseSheet.getRange('G10').setValue('Description');
+    incomeExpenseSheet.getRange('H10').setValue('Total Expenses');
+
+    //formatting for the expenses
+    incomeExpenseSheet.getRange('E10:H10').setFontWeight('bold')
+      .setHorizontalAlignment('center')
+      .setBackground('#213483')
+      .setFontColor('#FFFFFF');
+    incomeExpenseSheet.getRange('E11:E').setNumberFormat('$#,##0.00');
+    incomeExpenseSheet.getRange('H11:H').setNumberFormat('$#,##0.00');
+    var totalExpenses = '=SUM(E11:E)';
+    incomeExpenseSheet.getRange('H11').setFormula(totalExpenses);
+
+    //resize the columns
+    for (var i =1; i < 22; i++){
+      incomeExpenseSheet.autoResizeColumn(i);
+    }
     
-
-
 }
