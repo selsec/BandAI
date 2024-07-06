@@ -13,11 +13,12 @@ function calculateStartDues() {
         var transactions = transactionsRange.getValues();
         var fairShareExists = transactions.some(function(row) { return row[0] === 'Band Fee'; });
         var uniformFeeExists = transactions.some(function(row) { return row[0] === 'Uniform Fee'; });
+        var marchingFeeExists = transactions.some(function(row) { return row[0] === 'Marching Fee'; });
   
         // If neither "Fair Share" nor "Uniform Fee" exist, add them
         if (!fairShareExists && !uniformFeeExists) {
           // Set the current date in A17 and A18
-          sheet.getRange('A17:A18').setValues([[currentDate], [currentDate]]);
+          sheet.getRange('A17:A19').setValues([[currentDate], [currentDate]]);
           
           // Set the starting dues information
           sheet.getRange('B17').setValue('Band Fee');
@@ -27,20 +28,24 @@ function calculateStartDues() {
           sheet.getRange('B18').setValue('Uniform Fee');
           sheet.getRange('C18').setValue(50);
           sheet.getRange('D18').setValue('Debt');
+
+          sheet.getRange('B19').setValue('Marching Fee');
+          sheet.getRange('C19').setValue(200);
+          sheet.getRange('D19').setValue('Debt');
           
           // Format the cells if needed
-          sheet.getRange('C17:C18').setNumberFormat('$#,##0.00');
+          sheet.getRange('C17:C50').setNumberFormat('$#,##0.00');
           // Perform additional operations
           var grade = sheet.getRange('C2').getValue();
           var instrument = sheet.getRange('E2').getValue();
           // Check if the grade is 9 and add "Shoes" and "Bibbers"
           if (grade === 9) {
-            sheet.getRange('A19:A20').setValues([[currentDate], [currentDate]]);
-            sheet.getRange('B19').setValue('Shoes');
-            sheet.getRange('B20').setValue('Bibbers');
-            sheet.getRange('C19').setValue(60); 
-            sheet.getRange('C20').setValue(100);  
-            sheet.getRange('D19:D20').setValues([['Debt'], ['Debt']]);
+            sheet.getRange('A20:A21').setValues([[currentDate], [currentDate]]);
+            sheet.getRange('B20').setValue('Shoes');
+            sheet.getRange('B21').setValue('Bibbers');
+            sheet.getRange('C20').setValue(60); 
+            sheet.getRange('C21').setValue(100);  
+            sheet.getRange('D20:D21').setValues([['Debt'], ['Debt']]);
             // Check the checkboxes in cells A9 and B9
             sheet.getRange('A9').insertCheckboxes().check();
             sheet.getRange('B9').insertCheckboxes().check();

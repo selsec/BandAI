@@ -115,6 +115,25 @@ function formatStudentSheet(sheet) {
     sheet.getRange('I7').setValue('Hips');
     sheet.getRange('h9').setValue('Order Gloves');
     sheet.getRange('I9').setValue('Glove Size');
+    sheet.getRange('K1').setValue('Band Fee ($300/$400)');
+    sheet.getRange('K2').setValue('Colorguard Fee ($400)');
+    sheet.getRange('K3').setValue('Uniform Fee ($50)');
+    sheet.getRange('K4').setValue('Percussion Fee ($100)');
+    sheet.getRange('K5').setValue('Marching Fee $200');
+    sheet.getRange('K6').setValue('Bibbers $60');
+    sheet.getRange('K7').setValue('Shoes $30');
+    sheet.getRange('K8').setValue('Dress $70');
+    sheet.getRange('K9').setValue('All County $10');
+    sheet.getRange('K10').setValue('S&E $10');
+    sheet.getRange('K11').setValue('State $10');
+    sheet.getRange('K12').setValue('Indoor Winds');
+    sheet.getRange('K13').setValue('Indoor Guard');
+    sheet.getRange('K14').setValue('Leadership Chord');
+    sheet.getRange('K15').setValue('Gloves');
+    sheet.getRange('K16').setValue('Chaperone Shirt');
+    sheet.getRange('K17').setValue('Extra Show Shirt');
+    sheet.getRange('K18').setValue('Fundraising');
+    sheet.getRange('K19').setValue('Senior Banners');
     
     //insert check boxes for needed uniform items
     sheet.getRange('A9').insertCheckboxes();
@@ -131,6 +150,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('A12:G12').setFontWeight('bold');
     sheet.getRange('H7:I7').setFontWeight('bold');
     sheet.getRange('H9:I9').setFontWeight('bold');
+    sheet.getRange('K1:K19').setFontWeight('bold');
         
     //merge and center transaction history header
     var mergeRange =sheet.getRange('A15:G15');
@@ -156,6 +176,9 @@ function formatStudentSheet(sheet) {
     sheet.getRange('A17:A').setNumberFormat('MM/dd/yyyy');
     sheet.getRange('C17:C').setNumberFormat('$#,##0.00');
     sheet.getRange('A17:G').setHorizontalAlignment('center');
+    sheet.getRange('K1:K19').setHorizontalAlignment('center');
+    sheet.getRange('L1:L19').setHorizontalAlignment('center');
+    sheet.getRange('L1:l19').setNumberFormat('$#,##0.00');
     
     //set formula to calculate total debt
     var formula1 = '=SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "debt")))';
@@ -193,6 +216,8 @@ function formatStudentSheet(sheet) {
     headerRange4.setBackground('#213483');
     var headerRange5 = sheet.getRange('h9:i9');
     headerRange5.setBackground('#213483');
+    var headerRange6 = sheet.getRange('K1:K19');
+    headerRange6.setBackground('#213483');
 
     
     //set header text color
@@ -206,6 +231,8 @@ function formatStudentSheet(sheet) {
     headerTextRange4.setFontColor('#ffffff');
     var headerTextRange5 = sheet.getRange('h9:i9');
     headerTextRange5.setFontColor('#ffffff');
+    var headerTextRange6 = sheet.getRange('K1:K19');
+    headerTextRange6.setFontColor('#ffffff');
 
     //center entire sheet
     sheet.getRange('A:Z').setHorizontalAlignment('center');
