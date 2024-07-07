@@ -82,10 +82,10 @@ function importRoster() {
     3rd Period
     5th Period
     */
+  calculateStartDues();
    createAndFormatMasterSheet();
-   calculateStartDues();
-   //sortSheetsAlphabetically();
-   //createIncomeExpense();*/
+  sortSheetsAlphabetically();
+  createIncomeExpense();
 }
 
 function formatStudentSheet(sheet) {
@@ -204,6 +204,66 @@ function formatStudentSheet(sheet) {
     sheet.getRange('G13').setFormula(formula4);
     sheet.getRange('G13').setHorizontalAlignment('center');
     sheet.getRange('A13:J13').setHorizontalAlignment('center');
+
+    //set formula to put totals in column L
+    var numberRows = sheet.getLastRow();
+    for (var i = 17; i <= numberRows; i++) {
+      if (sheet.getRange('B' + i).getValue() === 'Band Fee') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L1').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Uniform Fee') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L2').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Percussion Fee') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L3').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Marching Fee') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L4').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Bibbers') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L5').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Shoes') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L6').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Dress') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L7').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'All County') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L8').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'S&E') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L9').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'State') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L10').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Indoor Winds') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L11').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Indoor Guard') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L12').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Leadership Chord') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L13').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Gloves') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L14').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Chaperone Shirt') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L15').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Extra Show Shirt') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L16').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Fundraising') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L17').setValue(money);
+      } else if (sheet.getRange('B' + i).getValue() === 'Senior Banners') {
+        var money = sheet.getValue('C' + i);
+        sheet.getRange('L18').setValue(money);
+      } 
+    }
     
     //set header color
     var headerRange = sheet.getRange('A1:G1');
