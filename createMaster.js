@@ -23,24 +23,24 @@ function createAndFormatMasterSheet() {
     masterSheet.getRange('G1').setValue('Uniform Fee ($50)');
     masterSheet.getRange('H1').setValue('Percussion Fee ($100)');
     masterSheet.getRange('I1').setValue('Marching Fee ($200)');
-    masterSheet.getRange('I1').setValue('Bibbers ($60)');
-    masterSheet.getRange('J1').setValue('Shoes ($30)');
-    masterSheet.getRange('K1').setValue('Dress ($70)');
-    masterSheet.getRange('L1').setValue('All County ($10)');
-    masterSheet.getRange('M1').setValue('S&E');
-    masterSheet.getRange('N1').setValue('State');
-    masterSheet.getRange('O1').setValue('Indoor Winds');
-    masterSheet.getRange('P1').setValue('Indoor Guard');
-    masterSheet.getRange('Q1').setValue('Leadership Chord');
-    masterSheet.getRange('R1').setValue('Gloves');
-    masterSheet.getRange('S1').setValue('Chaperone Shirt');
-    masterSheet.getRange('T1').setValue('Extra Show Shirt');
-    masterSheet.getRange('U1').setValue('Fundraising');
-    masterSheet.getRange('V1').setValue('Senior Banners');
+    masterSheet.getRange('J1').setValue('Bibbers ($60)');
+    masterSheet.getRange('K1').setValue('Shoes ($30)');
+    masterSheet.getRange('L1').setValue('Dress ($70)');
+    masterSheet.getRange('M1').setValue('All County ($10)');
+    masterSheet.getRange('N1').setValue('S&E');
+    masterSheet.getRange('O1').setValue('State');
+    masterSheet.getRange('P1').setValue('Indoor Winds');
+    masterSheet.getRange('Q1').setValue('Indoor Guard');
+    masterSheet.getRange('R1').setValue('Leadership Chord');
+    masterSheet.getRange('S1').setValue('Gloves');
+    masterSheet.getRange('T1').setValue('Chaperone Shirt');
+    masterSheet.getRange('U1').setValue('Extra Show Shirt');
+    masterSheet.getRange('V1').setValue('Fundraising');
+    masterSheet.getRange('W1').setValue('Senior Banners');
 
   
     //formatting for the headers
-    masterSheet.getRange('A1:V1').setFontWeight('bold')
+    masterSheet.getRange('A1:W1').setFontWeight('bold')
       .setHorizontalAlignment('center')
       .setBackground('#213483')
       .setFontColor('#FFFFFF');

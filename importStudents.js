@@ -82,10 +82,10 @@ function importRoster() {
     3rd Period
     5th Period
     */
-   createAndFormatMasterSheet();
+   /*createAndFormatMasterSheet();
    calculateStartDues();
    sortSheetsAlphabetically();
-   createIncomeExpense();
+   createIncomeExpense();*/
 }
 
 function formatStudentSheet(sheet) {
@@ -236,4 +236,10 @@ function formatStudentSheet(sheet) {
 
     //center entire sheet
     sheet.getRange('A:Z').setHorizontalAlignment('center');
+    
+    //auto resize columns
+    for (var i = 1; i <= 26; i++) {
+      sheet.autoResizeColumn(i);
+    }
+
 }
