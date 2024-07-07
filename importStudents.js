@@ -86,6 +86,7 @@ function importRoster() {
   sortSheetsAlphabetically();
   createIncomeExpense();
   createAndFormatMasterSheet();
+  sortSheetsAlphabetically();
   
   
 }
