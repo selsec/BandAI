@@ -186,7 +186,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('A13').setHorizontalAlignment('center');
     
     //set formula to calculate total paid
-    var formula2 = '=IFFERROR(SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "payment"))), "$0.00")';
+    var formula2 = '=IFERROR(SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "payment"))), "$0.00")';
     sheet.getRange('C13').setNumberFormat('$#,##0.00');
     sheet.getRange('C13').setFormula(formula2);
     sheet.getRange('C13').setHorizontalAlignment('center');
@@ -198,7 +198,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('E13').setHorizontalAlignment('center');  
     
     //set formula to calculate balance remaining
-    var formula4 = '=IFERROR(A13-C13-E13), "$0.00")';
+    var formula4 = '=IFERROR(A13-C13-E13, "$0.00")';
     sheet.getRange('G13').setNumberFormat('$#,##0.00'); 
     sheet.getRange('G13').setFormula(formula4);
     sheet.getRange('G13').setHorizontalAlignment('center');
