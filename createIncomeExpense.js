@@ -7,8 +7,8 @@ function createIncomeExpense() {
 
     //headers for the sheet
     var headers = [
-        'Band Fee ($300/$400)', 'Uniform Fee ($50)', 
-        'Percussion Fee ($100)', 'Bibbers ($60)', 'Shoes ($30)', 'Dress ($70)',
+        'Band Fee ($300/$400)', 'Uniform Fee ($50)', 'Percussion Fee ($100)', 
+        'Marching Fee ($200)', 'Bibbers ($60)', 'Shoes ($30)', 'Dress ($70)',
         'All County ($10)', 'S&E', 'State', 'Indoor Winds', 'Indoor Guard',
         'Leadership Chord', 'Gloves', 'Chaperone Shirt', 'Extra Show Shirt',
         'Fundraising', 'Senior Banners'
