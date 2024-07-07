@@ -1,7 +1,7 @@
 //the purpose of this function is the create the bus roster, placing brass and percussion on bus 1 and woodwinds and colorguard on bus 2
 function createBusRoster() {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var excludedSheets = ['Master', 'Bus Roster', 'Period Roster', 'Attendance', 'Uniform Order'];
+    var excludedSheets = ['Master', 'Bus Roster', 'Period Roster', 'Attendance', 'Uniform Order', 'IncomeExpense'];    
     var bus1Instruments = ['Trombone', 'Baritone', 'Tuba', 'Trumpet', 'French Horn', 'Percussion'];
     var busRosterSheet = ss.getSheetByName('Bus Roster') || ss.insertSheet('Bus Roster', 1);
     busRosterSheet.clear(); // Clear any existing content
