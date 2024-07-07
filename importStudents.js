@@ -180,13 +180,13 @@ function formatStudentSheet(sheet) {
     sheet.getRange('L1:l19').setNumberFormat('$#,##0.00');
     
     //set formula to calculate total debt
-    var formula1 = '=SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "debt")))';
+    var formula1 = '=IFERROR(SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "debt"))), "$0.00")';
     sheet.getRange('A13').setNumberFormat('$#,##0.00');
     sheet.getRange('A13').setFormula(formula1);
     sheet.getRange('A13').setHorizontalAlignment('center');
     
     //set formula to calculate total paid
-    var formula2 = '=SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "payment")))';
+    var formula2 = '=IFFERROR(SUM(FILTER(C17:C, (D17:D <> "") * (LOWER(D17:D) = "payment"))), "$0.00")';
     sheet.getRange('C13').setNumberFormat('$#,##0.00');
     sheet.getRange('C13').setFormula(formula2);
     sheet.getRange('C13').setHorizontalAlignment('center');
@@ -198,7 +198,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('E13').setHorizontalAlignment('center');  
     
     //set formula to calculate balance remaining
-    var formula4 = '=A13-C13-E13';
+    var formula4 = '=IFERROR(A13-C13-E13), "$0.00")';
     sheet.getRange('G13').setNumberFormat('$#,##0.00'); 
     sheet.getRange('G13').setFormula(formula4);
     sheet.getRange('G13').setHorizontalAlignment('center');
@@ -225,7 +225,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('L18').setValue('=sumif(B:B, "Senior Banners", C:C)');
     sheet.getRange('L1:L19').setNumberFormat('$#,##0.00');
     sheet.getRange('L1:L19').setHorizontalAlignment('center');
-    
+
 
     
     //set header color
