@@ -31,13 +31,22 @@ function importRoster() {
     var studentSheet = activeSpreadsheet.insertSheet(studentName);
     formatStudentSheet(studentSheet); //format the sheet with the format function*/
     // Check if the sheet already exists
-    if (sheetExists(studentName)) {
-      throw new Error('Sheet already exists for student: ' + studentName);
-    }
+    try {
+      if (sheetExists(studentName)) {
+        throw new Error('Sheet already exists for student: ' + studentName);
+      }
 
     // Create a new sheet for each student
     var studentSheet = activeSpreadsheet.insertSheet(studentName);
     formatStudentSheet(studentSheet); // Format the sheet with the format function
+    } catch (e) {
+      console.error('Already Exists:', studentName);
+    }
+  
+    
+   
+    
+
 
     // Set values in the student's sheet
     studentSheet.getRange('A2').setValue(studentName || '');
