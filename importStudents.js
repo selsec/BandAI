@@ -83,9 +83,11 @@ function importRoster() {
     5th Period
     */
   calculateStartDues();
-   createAndFormatMasterSheet();
   sortSheetsAlphabetically();
   createIncomeExpense();
+  createAndFormatMasterSheet();
+  
+  
 }
 
 function formatStudentSheet(sheet) {
@@ -103,7 +105,7 @@ function formatStudentSheet(sheet) {
     sheet.getRange('A12').setValue('Total Debt');
     sheet.getRange('C12').setValue('Total Paid');
     sheet.getRange('E12').setValue('Total Fundraised');
-    sheet.getRange('G12').setValue('Balance Remaining');
+    sheet.getRange('G12').setValue('Balance Owed');
     sheet.getRange('A7').setValue('Shoes');
     sheet.getRange('B7').setValue('Bibbers');
     sheet.getRange('C7').setValue('T-Shirt Size');

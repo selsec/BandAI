@@ -6,7 +6,7 @@ function createAndFormatMasterSheet() {
   
     //headers for the master sheet
     var headers = [
-      'Student Name', 'Grade', 'Period', 'Instrument', 'Balance', 'Band Fee ($300/$400)', 'Uniform Fee ($50)',
+      'Student Name', 'Grade', 'Period', 'Instrument', 'Balance Owed', 'Band Fee ($300/$400)', 'Uniform Fee ($50)',
       'Percussion Fee ($100)', 'Marching Fee ($200)', 'Bibbers ($60)', 'Shoes ($30)', 'Dress ($70)',
       'All County ($10)', 'S&E', 'State', 'Indoor Winds', 'Indoor Guard',
       'Leadership Chord', 'Gloves', 'Chaperone Shirt', 'Extra Show Shirt',
@@ -14,11 +14,12 @@ function createAndFormatMasterSheet() {
     ];
   
     //set the headers in row 1
-    masterSheet.getRange('A1:X1').setValues([headers]);
+    masterSheet.getRange('A1:W1').setValues([headers]);
     /*masterSheet.getRange('A1').setValue('Student Name');
     masterSheet.getRange('B1').setValue('Grade');
     masterSheet.getRange('C1').setValue('Period');
-    masterSheet.getRange('E1').setValue('Instrument');
+    masterSheet.getRange('D1').setValue('Instrument');
+    masterSheet.getRange('E1').setValue('Balance');
     masterSheet.getRange('F1').setValue('Band Fee ($300/$400)');
     masterSheet.getRange('G1').setValue('Uniform Fee ($50)');
     masterSheet.getRange('H1').setValue('Percussion Fee ($100)');
@@ -52,34 +53,34 @@ function createAndFormatMasterSheet() {
     
     //loop through all sheets and set the student names in the master sheet
     ss.getSheets().forEach(function(sheet, index) {
-      if (sheet.getName() !== masterSheetName && sheet.getName() !== 'Dashboard' && sheet.getName() !== 'Income/Expense' && sheet.getName() !== 'Bus Roster' && sheet.getName() !== 'Uniform Order' && sheet.getName() !== '3rd Period' && sheet.getName() !== '5th Period' && sheet.getName() !== 'Master Roster' && sheet.getName() !== 'Attendance') {
+      if (sheet.getName() !== masterSheetName && sheet.getName() !== 'Dashboard' && sheet.getName() !== 'IncomeExpense' && sheet.getName() !== 'Bus Roster' && sheet.getName() !== 'Uniform Order' && sheet.getName() !== '3rd Period' && sheet.getName() !== '5th Period' && sheet.getName() !== 'Master Roster' && sheet.getName() !== 'Attendance') {
                var studentName = sheet.getRange('A2').getValue();
                var studentGrade = sheet.getRange('C2').getValue();
                var studentPeriod = sheet.getRange('B2').getValue();
                var studentInstrument = sheet.getRange('E2').getValue();
-        masterSheet.getRange('A' + (index + 2)).setValue(studentName);
-        masterSheet.getRange('B' + (index + 2)).setValue(studentGrade);
-        masterSheet.getRange('C' + (index + 2)).setValue(studentPeriod);
-        masterSheet.getRange('D' + (index + 2)).setValue(studentInstrument);
-        masterSheet.getRange('E' + (index + 2)).setValue('=INDIRECT("' + studentName + '!G13")');
-        masterSheet.getRange('F' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L1")');
-        masterSheet.getRange('G' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L2")');
-        masterSheet.getRange('H' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L3")');
-        masterSheet.getRange('I' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L4")');
-        masterSheet.getRange('J' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L5")');
-        masterSheet.getRange('K' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L6")');
-        masterSheet.getRange('L' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L7")');
-        masterSheet.getRange('M' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L8")');
-        masterSheet.getRange('N' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L9")');
-        masterSheet.getRange('O' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L10")');
-        masterSheet.getRange('P' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L11")');
-        masterSheet.getRange('Q' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L12")');
-        masterSheet.getRange('R' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L13")');
-        masterSheet.getRange('S' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L14")');
-        masterSheet.getRange('T' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L15")');
-        masterSheet.getRange('U' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L16")');
-        masterSheet.getRange('V' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L17")');
-        masterSheet.getRange('W' + (index + 2)).setValue('=INDIRECT("' + studentName + '!L18")');
+        masterSheet.getRange('A' + (index + 1)).setValue(studentName);
+        masterSheet.getRange('B' + (index + 1)).setValue(studentGrade);
+        masterSheet.getRange('C' + (index + 1)).setValue(studentPeriod);
+        masterSheet.getRange('D' + (index + 1)).setValue(studentInstrument);
+        masterSheet.getRange('E' + (index + 1)).setValue('=INDIRECT("' + studentName + '!G13")');
+        masterSheet.getRange('F' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L1")');
+        masterSheet.getRange('G' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L2")');
+        masterSheet.getRange('H' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L3")');
+        masterSheet.getRange('I' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L4")');
+        masterSheet.getRange('J' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L5")');
+        masterSheet.getRange('K' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L6")');
+        masterSheet.getRange('L' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L7")');
+        masterSheet.getRange('M' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L8")');
+        masterSheet.getRange('N' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L9")');
+        masterSheet.getRange('O' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L10")');
+        masterSheet.getRange('P' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L11")');
+        masterSheet.getRange('Q' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L12")');
+        masterSheet.getRange('R' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L13")');
+        masterSheet.getRange('S' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L14")');
+        masterSheet.getRange('T' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L15")');
+        masterSheet.getRange('U' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L16")');
+        masterSheet.getRange('V' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L17")');
+        masterSheet.getRange('W' + (index + 1)).setValue('=INDIRECT("' + studentName + '!L18")');
         
       }
     });
