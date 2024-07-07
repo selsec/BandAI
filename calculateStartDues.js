@@ -13,12 +13,12 @@ function calculateStartDues() {
         var transactions = transactionsRange.getValues();
         var fairShareExists = transactions.some(function(row) { return row[0] === 'Band Fee'; });
         var uniformFeeExists = transactions.some(function(row) { return row[0] === 'Uniform Fee'; });
-        var marchingFeeExists = transactions.some(function(row) { return row[0] === 'Marching Fee'; });
+        
   
         // If neither "Fair Share" nor "Uniform Fee" exist, add them
         if (!fairShareExists && !uniformFeeExists) {
           // Set the current date in A17 and A18
-          sheet.getRange('A17:A19').setValues([[currentDate], [currentDate]]);
+          sheet.getRange('A17:A19').setValues([[currentDate], [currentDate], [currentDate]]);
           
           // Set the starting dues information
           sheet.getRange('B17').setValue('Band Fee');
